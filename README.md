@@ -71,7 +71,8 @@ bash scripts/run_eval.sh
 ```bash
 python -m src.dieyield.pipeline predict --model b --input input/validation.csv --output input/submission.csv
 ```
-The output file [`input/submission.csv`](file:///c:/Users/welcome/Desktop/Sandisk-Cerebrum/sandisk_cerebrum/input/submission.csv) will be created matching the required submission specification: `wafer_id,die_row,die_col,predicted_label`.
+The output file `input/submission.csv` will be created matching the required submission specification: `wafer_id,die_row,die_col,predicted_label`.
+
 
 ### Launch Interactive Web Dashboard
 ```bash

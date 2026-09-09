@@ -1,0 +1,31 @@
+# Data & Generated Datasets
+input/
+data/*.pkl
+data/*.csv
+data/*.parquet
+*.npy
+
+# Python Caches & Environments
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+venv/
+.venv/
+env/
+
+# IDE & OS Files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Large Models & Temp Artifacts
+*.pkl
+*.parquet
+*.pt
+*.txt
+!requirements.txt
+!requirements-dev.txt

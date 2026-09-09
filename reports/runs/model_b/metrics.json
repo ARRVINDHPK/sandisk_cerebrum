@@ -1,0 +1,19 @@
+{
+  "overall_accuracy": 0.9591992934942596,
+  "pass_recall": 0.9873248019500305,
+  "fail_recall": 0.1565217391304348,
+  "pass_precision": 0.9709354587403368,
+  "fail_precision": 0.30201342281879195,
+  "pass_f1": 0.9790615463637188,
+  "fail_f1": 0.20618556701030927,
+  "actual_fail_pred_fail": 90.0,
+  "actual_fail_pred_pass": 485.0,
+  "actual_pass_pred_fail": 208.0,
+  "actual_pass_pred_pass": 16202.0,
+  "total_dies": 17640.0,
+  "eligible_dies": 16985.0,
+  "eligible_fail_count": 575.0,
+  "auc_pr": 0.17865493331111565,
+  "model_name": "Model B",
+  "threshold": 0.7700000000000002
+}

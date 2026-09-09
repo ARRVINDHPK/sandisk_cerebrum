@@ -1,0 +1,28 @@
+# Model A Configuration: Die-Level Features + Spatial Context (No Block Data)
+model_type: "lightgbm"
+name: "model_a"
+
+feature_params:
+  correlation_threshold: 0.98
+  drop_zero_variance: true
+  use_spatial_features: true
+  use_block_stats: false
+  use_block_embedding: false
+
+model_params:
+  objective: "binary"
+  boosting_type: "gbdt"
+  n_estimators: 300
+  learning_rate: 0.05
+  num_leaves: 31
+  max_depth: 6
+  subsample: 0.8
+  colsample_bytree: 0.8
+  random_state: 42
+  verbose: -1
+
+imbalance_strategy:
+  use_scale_pos_weight: true
+  use_focal_loss: false
+  focal_gamma: 2.0
+  focal_alpha: 0.25

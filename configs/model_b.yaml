@@ -1,0 +1,36 @@
+# Model B Configuration: Model A + Block Statistics + PyTorch Block Embedding
+model_type: "lightgbm"
+name: "model_b"
+
+feature_params:
+  correlation_threshold: 0.98
+  drop_zero_variance: true
+  use_spatial_features: true
+  use_block_stats: true
+  use_block_embedding: true
+
+embedding_params:
+  input_dim: 2000
+  embedding_dim: 16
+  batch_size: 256
+  epochs: 5
+  learning_rate: 0.001
+  device: "cpu"
+
+model_params:
+  objective: "binary"
+  boosting_type: "gbdt"
+  n_estimators: 350
+  learning_rate: 0.05
+  num_leaves: 31
+  max_depth: 6
+  subsample: 0.8
+  colsample_bytree: 0.8
+  random_state: 42
+  verbose: -1
+
+imbalance_strategy:
+  use_scale_pos_weight: true
+  use_focal_loss: false
+  focal_gamma: 2.0
+  focal_alpha: 0.25

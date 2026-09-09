@@ -1,0 +1,15 @@
+# Evaluation Harness & Metric Configuration
+target_col: "label"
+old_label_col: "old_label"
+eligible_filter_val: 0  # old_label == 0 are eligible dies
+
+threshold_search:
+  metric: "fail_f1"
+  min_threshold: 0.05
+  max_threshold: 0.95
+  step: 0.01
+
+report_paths:
+  runs_dir: "reports/runs"
+  figures_dir: "reports/figures"
+  final_report: "reports/FINAL_REPORT.md"

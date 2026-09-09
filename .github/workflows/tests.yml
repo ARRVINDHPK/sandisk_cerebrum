@@ -1,0 +1,46 @@
+name: Run Tests & Build Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11"]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Cache dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run Pytest Test Suite
+      run: |
+        python -m pytest -v
+
+    - name: Smoke Test Synthetic Data Generation & Pipeline
+      run: |
+        python generate_data.py --csv
+        python -m src.dieyield.pipeline train --model all
+        python -m src.dieyield.pipeline evaluate
+        python -m src.dieyield.pipeline predict --model b --input input/validation.csv --output input/submission.csv
